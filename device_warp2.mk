@@ -42,6 +42,50 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
 	frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml
 
+PRODUCT_PACKAGES += \
+	lights.msm7x30 \
+	applypatch \
+	ast-mm-vdec-omx-test \
+	com.android.future.usb.accessory \
+	gps.default \
+	libaudioutils \
+	libdivxdrmdecrypt \
+	libinvensense_hal \
+	liblasic \
+	liblinenoise \
+	libmemalloc \
+	libmllite \
+	libmlplatform \
+	libmmjpeg_interface \
+	libmm-omxcore \
+	libOmxAacEnc \
+	libOmxAmrEnc \
+	libOmxCore \
+	libOmxEvrcEnc \
+	libOmxQcelp13Enc \
+	libOmxVdec \
+	libOmxVenc \
+	libOmxVidEnc \
+	libOpenMAXAL \
+	libOpenSLES \
+	librs_jni \
+	libstagefrighthw \
+	LiveWallpapers \
+	LiveWallpapersPicker \
+	make_ext4fs \
+	mm-vdec-omx-property-mgr \
+	mm-vdec-omx-test \
+	mm-venc-omx-test \
+	mm-venc-omx-test720p \
+	mm-video-driver-test \
+	mm-video-encdrv-test \
+	setup_fs 
+
+# Display
+PRODUCT_PACKAGES += \
+    hwcomposer.msm7x30 \
+	libgenlock
+
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_warp2
 PRODUCT_DEVICE := warp2
