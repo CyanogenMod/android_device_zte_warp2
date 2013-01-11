@@ -22,8 +22,9 @@ BOARD_KERNEL_CMDLINE := console=ttyMSM1,115200,n8 androidboot.hardware=qcom vmal
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_PAGESIZE := 4096
 
-#TARGET_KERNEL_CONFIG := warp2_defconfig
+TARGET_KERNEL_CONFIG := warp2_defconfig
 TARGET_PREBUILT_KERNEL := device/zte/warp2/kernel
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
 
 # fix this up by examining /proc/mtd on a running device
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
