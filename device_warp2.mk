@@ -96,6 +96,7 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
+    gralloc.msm7x30 \
     hwcomposer.msm7x30 \
 	libgenlock
 
@@ -109,7 +110,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/usr/keylayout/msm_tma300_ts.kl:system/usr/keylayout/msm_tma300_ts.kl \
     $(LOCAL_PATH)/prebuilts/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
     $(LOCAL_PATH)/prebuilts/usr/keylayout/syna-touchscreen.kl:system/usr/keylayout/syna-touchscreen.kl
-
 
 # SDCard
 PRODUCT_COPY_FILES += \

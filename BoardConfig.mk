@@ -3,6 +3,8 @@ USE_CAMERA_STUB := true
 # inherit from the proprietary version
 -include vendor/zte/warp2/BoardConfigVendor.mk
 
+TARGET_SPECIFIC_HEADER_PATH := device/zte/warp2/include
+
 TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM := msm7x30
 TARGET_CPU_ABI := armeabi-v7a
@@ -74,7 +76,7 @@ TARGET_PROVIDES_LIBAUDIO := true
 
 # Wifi
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-WPA_SUPPLICANT_VERSION := VER_0_6_X
+WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WLAN_DEVICE := libra
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/libra.ko"
 WIFI_DRIVER_MODULE_NAME := "libra"
@@ -142,7 +144,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += ro.config.sec_storage=1
 ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.usb.config=mtp,adb
 
 #BOARD_USE_USB_MASS_STORAGE_SWITCH := true
-BOARD_CUSTOM_USB_CONTROLLER := ../../device/zte/arthur/UsbController.cpp
+BOARD_CUSTOM_USB_CONTROLLER := ../../device/zte/warp2/UsbController.cpp
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
