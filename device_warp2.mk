@@ -24,7 +24,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/root/init.2ndstage.rc:root/init.2ndstage.rc \
 	$(LOCAL_PATH)/root/init.warp2.rc:root/init.warp2.rc \
 	$(LOCAL_PATH)/root/initlogo.rle:root/initlogo.rle \
-	$(LOCAL_PATH)/rootlogo.bmp
+	$(LOCAL_PATH)/rootlogo.bmp:root/logo.bmp
 
 ## Recovery
 PRODUCT_COPY_FILES += \
