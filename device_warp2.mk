@@ -98,6 +98,45 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm7x30 \
 	libgenlock
 
+# Keychar & Keylayout
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
+    $(LOCAL_PATH)/prebuilts/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \
+    $(LOCAL_PATH)/prebuilts/keylayout/atmel-touchscreen.kl:system/usr/keylayout/atmel-touchscreen.kl \
+    $(LOCAL_PATH)/prebuilts/keylayout/ats_input.kl:system/usr/keylayout/ats_input.kl \
+    $(LOCAL_PATH)/prebuilts/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
+    $(LOCAL_PATH)/prebuilts/keylayout/warp2-keypad.kl:system/usr/keylayout/warp2-keypad.kl \
+    $(LOCAL_PATH)/prebuilts/keylayout/msm_tma300_ts.kl:system/usr/keylayout/msm_tma300_ts.kl \
+    $(LOCAL_PATH)/prebuilts/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
+    $(LOCAL_PATH)/prebuilts/keylayout/syna-touchscreen.kl:system/usr/keylayout/syna-touchscreen.kl \
+    $(LOCAL_PATH)/prebuilts/keylayout/touch_keypad.kl:system/usr/keylayout/touch_keypad.kl
+
+# SDCard
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/root/vold.fstab:system/etc/vold.fstab
+
+# Common Qualcomm scripts
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
+    $(LOCAL_PATH)/prebuilt/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
+    $(LOCAL_PATH)/prebuilt/etc/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
+    $(LOCAL_PATH)/prebuilt/etc/init.qcom.wlanprop.sh:system/etc/init.wlanprop.sh \
+    $(LOCAL_PATH)/prebuilt/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
+    $(LOCAL_PATH)/prebuilt/etc/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh
+
+## Media
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/files/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
+    $(LOCAL_PATH)/prebuilt/files/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
+    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_1080p.fw:system/etc/firmware/vidc_1080p.fw \
+    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_720p_command_control.fw:system/etc/firmware/vidc_720p_command_control.fw \
+    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_720p_h263_dec_mc.fw:system/etc/firmware/vidc_720p_h263_dec_mc.fw \
+    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_720p_h264_dec_mc.fw:system/etc/firmware/vidc_720p_h264_dec_mc.fw \
+    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_720p_h264_enc_mc.fw:system/etc/firmware/vidc_720p_h264_enc_mc.fw \
+    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_720p_mp4_dec_mc.fw:system/etc/firmware/vidc_720p_mp4_dec_mc.fw \
+    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_720p_mp4_enc_mc.fw:system/etc/firmware/vidc_720p_mp4_enc_mc.fw \
+    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_720p_vc1_dec_mc.fw:system/etc/firmware/vidc_720p_vc1_dec_mc.fw 
+
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_warp2
 PRODUCT_DEVICE := warp2
