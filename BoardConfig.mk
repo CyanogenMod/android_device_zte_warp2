@@ -15,10 +15,10 @@ TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 BOARD_USES_ADRENO_200 := true
-#TARGET_USES_ION := false
-TARGET_PROVIDES_INIT_RC := true
+TARGET_USES_ION := true
+#TARGET_PROVIDES_INIT_RC := true
 
-BOARD_KERNEL_CMDLINE := console=ttyMSM1,115200,n8 androidboot.hardware=qcom vmalloc=512M kgsl.ptcount=14
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_PAGESIZE := 4096
 
@@ -57,7 +57,6 @@ BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
 BOARD_USES_MMCUTILS := true
 
 # recovery
-TARGET_PREBUILT_KERNEL := device/zte/warp2/recovery/kernel
 TARGET_PREBUILT_RECOVERY_KERNEL := device/zte/warp2/recovery/kernel
 TARGET_RECOVERY_INITRC := device/zte/warp2/recovery/recovery.rc
 BOARD_CUSTOM_GRAPHICS := ../../../device/zte/warp2/recovery/graphics.c

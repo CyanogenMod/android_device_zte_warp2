@@ -19,6 +19,14 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
+## Root
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/root/init.2ndstage.rc:root/init.2ndstage.rc \
+	$(LOCAL_PATH)/root/init.warp2.rc:root/init.warp2.rc \
+	$(LOCAL_PATH)/root/initlogo.rle:root/initlogo.rle \
+	$(LOCAL_PATH)/rootlogo.bmp
+
+## Recovery
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/recovery/rmt_storage_recovery:recovery/root/sbin/rmt_storage_recovery \
 	$(LOCAL_PATH)/recovery/ueventd.rc:recovery/root/ueventd.rc \
