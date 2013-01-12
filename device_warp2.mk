@@ -11,7 +11,7 @@ DEVICE_PACKAGE_OVERLAYS += device/zte/warp2/overlay
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 # Kernel Modules
-$(call inherit-product-if-exists, $(LOCAL_PATH)/prebuilt/modules/modules.mk)
+$(call inherit-product-if-exists, $(LOCAL_PATH)/prebuilts/modules/modules.mk)
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -91,7 +91,8 @@ PRODUCT_PACKAGES += \
 	mm-venc-omx-test720p \
 	mm-video-driver-test \
 	mm-video-encdrv-test \
-	setup_fs 
+	setup_fs \
+	liboverlay
 
 # Display
 PRODUCT_PACKAGES += \
@@ -112,29 +113,28 @@ PRODUCT_COPY_FILES += \
 
 # SDCard
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/root/etc/vold.fstab:system/etc/vold.fstab
+    $(LOCAL_PATH)/prebuilts/etc/vold.fstab:system/etc/vold.fstab
 
 # Common Qualcomm scripts
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
-    $(LOCAL_PATH)/prebuilt/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
-    $(LOCAL_PATH)/prebuilt/etc/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
-    $(LOCAL_PATH)/prebuilt/etc/init.qcom.wlanprop.sh:system/etc/init.wlanprop.sh \
-    $(LOCAL_PATH)/prebuilt/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
-    $(LOCAL_PATH)/prebuilt/etc/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh
+    $(LOCAL_PATH)/prebuilts/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
+    $(LOCAL_PATH)/prebuilts/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
+    $(LOCAL_PATH)/prebuilts/etc/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
+    $(LOCAL_PATH)/prebuilts/etc/init.wlanprop.sh:system/etc/init.wlanprop.sh \
+    $(LOCAL_PATH)/prebuilts/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
+    $(LOCAL_PATH)/prebuilts/etc/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh
 
 ## Media
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/files/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
-    $(LOCAL_PATH)/prebuilt/files/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
-    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_1080p.fw:system/etc/firmware/vidc_1080p.fw \
-    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_720p_command_control.fw:system/etc/firmware/vidc_720p_command_control.fw \
-    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_720p_h263_dec_mc.fw:system/etc/firmware/vidc_720p_h263_dec_mc.fw \
-    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_720p_h264_dec_mc.fw:system/etc/firmware/vidc_720p_h264_dec_mc.fw \
-    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_720p_h264_enc_mc.fw:system/etc/firmware/vidc_720p_h264_enc_mc.fw \
-    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_720p_mp4_dec_mc.fw:system/etc/firmware/vidc_720p_mp4_dec_mc.fw \
-    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_720p_mp4_enc_mc.fw:system/etc/firmware/vidc_720p_mp4_enc_mc.fw \
-    $(LOCAL_PATH)/prebuilt/files/etc/firmware/vidc_720p_vc1_dec_mc.fw:system/etc/firmware/vidc_720p_vc1_dec_mc.fw 
+    $(LOCAL_PATH)/prebuilts/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
+    $(LOCAL_PATH)/prebuilts/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
+    $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_command_control.fw:system/etc/firmware/vidc_720p_command_control.fw \
+    $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_h263_dec_mc.fw:system/etc/firmware/vidc_720p_h263_dec_mc.fw \
+    $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_h264_dec_mc.fw:system/etc/firmware/vidc_720p_h264_dec_mc.fw \
+    $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_h264_enc_mc.fw:system/etc/firmware/vidc_720p_h264_enc_mc.fw \
+    $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_mp4_dec_mc.fw:system/etc/firmware/vidc_720p_mp4_dec_mc.fw \
+    $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_mp4_enc_mc.fw:system/etc/firmware/vidc_720p_mp4_enc_mc.fw \
+    $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_vc1_dec_mc.fw:system/etc/firmware/vidc_720p_vc1_dec_mc.fw 
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_warp2
