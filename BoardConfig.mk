@@ -37,7 +37,7 @@ BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
 COMMON_GLOBAL_CFLAGS += -DBINDER_COMPAT
 
 #Graphics
-BOARD_EGL_CFG := device/zte/arthur/prebuilt/files/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/zte/warp2/prebuilts/lib/egl/egl.cfg
 USE_OPENGL_RENDERER := true
 # trying hal TARGET_HAVE_BYPASS := true
 # trying hal TARGET_USES_C2D_COMPOSITION := true

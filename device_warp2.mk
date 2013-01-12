@@ -100,20 +100,19 @@ PRODUCT_PACKAGES += \
 
 # Keychar & Keylayout
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
-    $(LOCAL_PATH)/prebuilts/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \
-    $(LOCAL_PATH)/prebuilts/keylayout/atmel-touchscreen.kl:system/usr/keylayout/atmel-touchscreen.kl \
-    $(LOCAL_PATH)/prebuilts/keylayout/ats_input.kl:system/usr/keylayout/ats_input.kl \
-    $(LOCAL_PATH)/prebuilts/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-    $(LOCAL_PATH)/prebuilts/keylayout/warp2-keypad.kl:system/usr/keylayout/warp2-keypad.kl \
-    $(LOCAL_PATH)/prebuilts/keylayout/msm_tma300_ts.kl:system/usr/keylayout/msm_tma300_ts.kl \
-    $(LOCAL_PATH)/prebuilts/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
-    $(LOCAL_PATH)/prebuilts/keylayout/syna-touchscreen.kl:system/usr/keylayout/syna-touchscreen.kl \
-    $(LOCAL_PATH)/prebuilts/keylayout/touch_keypad.kl:system/usr/keylayout/touch_keypad.kl
+    $(LOCAL_PATH)/prebuilts/usr/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
+    $(LOCAL_PATH)/prebuilts/usr/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \
+    $(LOCAL_PATH)/prebuilts/usr/keylayout/atmel-touchscreen.kl:system/usr/keylayout/atmel-touchscreen.kl \
+    $(LOCAL_PATH)/prebuilts/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
+    $(LOCAL_PATH)/prebuilts/usr/keylayout/warp2_keypad.kl:system/usr/keylayout/warp2_keypad.kl \
+    $(LOCAL_PATH)/prebuilts/usr/keylayout/msm_tma300_ts.kl:system/usr/keylayout/msm_tma300_ts.kl \
+    $(LOCAL_PATH)/prebuilts/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
+    $(LOCAL_PATH)/prebuilts/usr/keylayout/syna-touchscreen.kl:system/usr/keylayout/syna-touchscreen.kl
+
 
 # SDCard
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/root/vold.fstab:system/etc/vold.fstab
+    $(LOCAL_PATH)/prebuilts/root/etc/vold.fstab:system/etc/vold.fstab
 
 # Common Qualcomm scripts
 PRODUCT_COPY_FILES += \
