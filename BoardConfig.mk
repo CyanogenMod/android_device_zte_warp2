@@ -59,33 +59,6 @@ TARGET_NO_HW_VSYNC := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 BOARD_USE_SKIA_LCDTEXT := true
 
-#Browser
-ENABLE_WEBGL := true
-TARGET_FORCE_CPU_UPLOAD := true
-DYNAMIC_SHARED_LIBV8SO := true
-WITH_JIT := true
-ENABLE_JSC_JIT := true
-JS_ENGINE := v8
-
-BOARD_USES_QCOM_LIBS := true
-BOARD_USES_QCOM_LIBRPC := true
-BOARD_USES_QCOM_GPS := true
-
-# Audio
-TARGET_PROVIDES_LIBAUDIO := true
-
-# Wifi
-BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_WLAN_DEVICE := libra
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/libra.ko"
-WIFI_DRIVER_MODULE_NAME := "libra"
-WIFI_EXT_MODULE_PATH := "/system/lib/modules/librasdioif.ko"
-WIFI_EXT_MODULE_NAME := "librasdioif"
-WIFI_PRE_LOADER := "qcom_sdio_init"
-WIFI_POST_UNLOADER := "qcom_sdio_deinit"
-BOARD_WEXT_NO_COMBO_SCAN := true
-
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
