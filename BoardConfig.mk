@@ -20,7 +20,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno205
 TARGET_BOARD_PLATFORM_FPU := neon
 BOARD_USES_ADRENO_200 := true
 TARGET_USES_ION := true
-#TARGET_PROVIDES_INIT_RC := true
+TARGET_PROVIDES_INIT_RC := true
 ARCH_ARM_HAVE_ARMV7A := true
 
 # QCOM hardware
@@ -68,7 +68,8 @@ TARGET_BOOTANIMATION_PRELOAD := true
 
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom
 BOARD_KERNEL_BASE := 0x00200000
-BOARD_KERNEL_PAGESIZE := 4096
+BOARD_FORCE_RAMDISK_ADDRESS := 0x81500000
+BOARD_KERNEL_PAGESIZE := 2048
 
 TARGET_KERNEL_CONFIG := warp2_defconfig
 TARGET_PREBUILT_KERNEL := device/zte/warp2/kernel
@@ -84,15 +85,15 @@ BOARD_PERSISTIMAGE_PARTITION_SIZE := 8241152
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # PARTITION LAYOUT/INFO ##
-BOARD_HAS_NO_MISC_PARTITION := false
-BOARD_BOOT_DEVICE := /dev/block/mmcblk0p12
-BOARD_RECOVERY_DEVICE := /dev/block/mmcblk0p13
-BOARD_SYSTEM_DEVICE := /dev/block/mmcblk0p15
-BOARD_SYSTEM_FILESYSTEM := ext4
-BOARD_CACHE_DEVICE := /dev/block/mmcblk0p18
-BOARD_CACHE_FILESYSTEM := ext4
-BOARD_DATA_DEVICE := /dev/block/mmcblk0p19
-BOARD_DATA_FILESYSTEM := ext4
+#BOARD_HAS_NO_MISC_PARTITION := false
+#BOARD_BOOT_DEVICE := /dev/block/mmcblk0p12
+#BOARD_RECOVERY_DEVICE := /dev/block/mmcblk0p13
+#BOARD_SYSTEM_DEVICE := /dev/block/mmcblk0p15
+#BOARD_SYSTEM_FILESYSTEM := ext4
+#BOARD_CACHE_DEVICE := /dev/block/mmcblk0p18
+#BOARD_CACHE_FILESYSTEM := ext4
+#BOARD_DATA_DEVICE := /dev/block/mmcblk0p19
+#OARD_DATA_FILESYSTEM := ext4
 TARGET_USERIMAGES_USE_EXT4 := true
 
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -123,3 +124,7 @@ BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 
 # Use this flag if the board has a ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
+
+# Releasetools
+#TARGET_PROVIDES_RELEASETOOLS := true
+#TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./device/zte/warp2/releasetools/warp2_ota_from_target_files

@@ -21,8 +21,11 @@ PRODUCT_COPY_FILES += \
 
 ## Root
 PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/root/init.rc:root/init.rc \
 	$(LOCAL_PATH)/root/init.2ndstg.rc:root/init.2ndstg.rc \
 	$(LOCAL_PATH)/root/init.warp2.rc:root/init.warp2.rc \
+	$(LOCAL_PATH)/root/ueventd.rc:root/ueventd.rc \
+	$(LOCAL_PATH)/root/ueventd.goldfish.rc:root/ueventd.goldfish.rc \
 	$(LOCAL_PATH)/root/initlogo.rle:root/initlogo.rle \
 	$(LOCAL_PATH)/root/logo.bmp:root/logo.bmp
 
@@ -33,6 +36,31 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/recovery/usbconfig:recovery/root/sbin/usbconfig
 
 $(call inherit-product, build/target/product/full.mk)
+
+PRODUCT_TAGS += dalvik.gc.type-precise
+
+PRODUCT_PROPERTY_OVERRIDES+= dalvik.vm.execution-mode=int:jit \
+	ro.telephony.call_ring.multiple=false \
+	ro.telephony.call_ring.delay=5000 \
+	dalvik.vm.dexopt-flags=m=y,u=n,v=a,o=v \
+	debug.enabletr=true \
+	persist.sys.use_dithering=0 \
+	ro.com.google.locationfeatures=1 \
+	mobiledata.interfaces = wlan0,rmnet0
+
+# Provides overrides to configure the Dalvik heap for a standard tablet device.
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	dalvik.vm.heapstartsize=5m \
+	dalvik.vm.heapgrowthlimit=48m \
+	dalvik.vm.heapsize=256m
+
+PRODUCT_LOCALES += hdpi
+
+PRODUCT_AAPT_CONFIG := hdpi
+
+#LLVM for RenderScript
+LLVM_ROOT_PATH := external/llvm
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
