@@ -21,13 +21,13 @@ PRODUCT_COPY_FILES += \
 
 ## Root
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/root/init.rc:root/init.rc \
 	$(LOCAL_PATH)/root/init.2ndstg.rc:root/init.2ndstg.rc \
 	$(LOCAL_PATH)/root/init.warp2.rc:root/init.warp2.rc \
 	$(LOCAL_PATH)/root/ueventd.rc:root/ueventd.rc \
 	$(LOCAL_PATH)/root/ueventd.goldfish.rc:root/ueventd.goldfish.rc \
 	$(LOCAL_PATH)/root/initlogo.rle:root/initlogo.rle \
 	$(LOCAL_PATH)/root/logo.bmp:root/logo.bmp
+#	$(LOCAL_PATH)/root/init.rc:root/init.rc \
 
 ## Recovery
 PRODUCT_COPY_FILES += \
@@ -49,7 +49,6 @@ PRODUCT_PROPERTY_OVERRIDES+= dalvik.vm.execution-mode=int:jit \
 	mobiledata.interfaces = wlan0,rmnet0
 
 # Provides overrides to configure the Dalvik heap for a standard tablet device.
-
 PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapstartsize=5m \
 	dalvik.vm.heapgrowthlimit=48m \
