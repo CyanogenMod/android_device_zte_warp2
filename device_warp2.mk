@@ -25,9 +25,13 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/root/init.warp2.rc:root/init.warp2.rc \
 	$(LOCAL_PATH)/root/ueventd.rc:root/ueventd.rc \
 	$(LOCAL_PATH)/root/ueventd.goldfish.rc:root/ueventd.goldfish.rc \
-	$(LOCAL_PATH)/root/initlogo.rle:root/initlogo.rle \
-	$(LOCAL_PATH)/root/logo.bmp:root/logo.bmp
-#	$(LOCAL_PATH)/root/init.rc:root/init.rc \
+	$(LOCAL_PATH)/root/init.qcom.rc:root/init.qcom.rc \
+	$(LOCAL_PATH)/root/init.qcom.sh:root/init.qcom.sh \
+	$(LOCAL_PATH)/root/init.qcom.usb.rc:root/init.qcom.usb.rc \
+	$(LOCAL_PATH)/root/init.qcom.usb.sh:root/init.qcom.usb.sh \
+	$(LOCAL_PATH)/root/logo.bmp:root/logo.bmp \
+	$(LOCAL_PATH)/root/init:rot/init \
+	$(LOCAL_PATH)/root/init.rc:root/init.rc
 
 ## Recovery
 PRODUCT_COPY_FILES += \
@@ -161,13 +165,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
     $(LOCAL_PATH)/prebuilts/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
+    $(LOCAL_PATH)/prebuilts/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+    $(LOCAL_PATH)/prebuilts/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
     $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_command_control.fw:system/etc/firmware/vidc_720p_command_control.fw \
     $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_h263_dec_mc.fw:system/etc/firmware/vidc_720p_h263_dec_mc.fw \
     $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_h264_dec_mc.fw:system/etc/firmware/vidc_720p_h264_dec_mc.fw \
     $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_h264_enc_mc.fw:system/etc/firmware/vidc_720p_h264_enc_mc.fw \
     $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_mp4_dec_mc.fw:system/etc/firmware/vidc_720p_mp4_dec_mc.fw \
     $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_mp4_enc_mc.fw:system/etc/firmware/vidc_720p_mp4_enc_mc.fw \
-    $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_vc1_dec_mc.fw:system/etc/firmware/vidc_720p_vc1_dec_mc.fw 
+    $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_vc1_dec_mc.fw:system/etc/firmware/vidc_720p_vc1_dec_mc.fw \
+	$(LOCAL_PATH)/prebuilts/etc/firmware/N970_N861_PR1183396_s2202_32313037.img:system/etc/firmware/N970_N861_PR1183396_s2202_32313037.img
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_warp2

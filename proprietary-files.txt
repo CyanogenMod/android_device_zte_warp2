@@ -36,6 +36,8 @@ bin/rild
 bin/rmt_storage
 bin/thermald
 lib/bluez-plugin/audio.so
+lib/egl/egl.cfg
+lib/egl/eglsubAndroid.so
 lib/egl/libEGL_adreno200.so
 lib/egl/libGLESv1_CM_adreno200.so
 lib/egl/libGLESv2_adreno200.so
@@ -63,8 +65,12 @@ lib/libdsi_netctrl.so
 lib/libdsm.so
 lib/libdss.so
 lib/libdsutils.so
+lib/libEGL.so
 lib/libgemini.so
 lib/libgenlock.so
+lib/libGLESv1_CM.so
+lib/libGLESv2.so
+lib/libGLESv2_dbg.so
 lib/libgsdi_exp.so
 lib/libgsl.so
 lib/libgstk_exp.so
@@ -94,6 +100,8 @@ lib/libOmxQcelpHwDec.so
 lib/libOmxVdec.so
 lib/libOmxVenc.so
 lib/libOmxWmaDec.so
+lib/libOpenSLES.so
+lib/libOpenVG.so
 lib/liboncrpc.so
 lib/libpbmlib.so
 lib/libpdapi.so
