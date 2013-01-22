@@ -138,3 +138,10 @@ ro.ril.shutdown=true
 # System prop for using landscape preview layout in camera
 #
 debug.camera.landscape=true
+
+# Carrier info
+ro.com.google.clientidbase.am=android-boost-us
+ro.com.google.clientidbase.yt=android-boost-us
+ro.com.google.clientidbase.ms=android-boost-us
+ro.cdma.home.operator.numeric=311870
+ro.cdma.home.operator.alpha=Boost Mobile

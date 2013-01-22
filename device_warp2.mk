@@ -4,7 +4,7 @@ $(call inherit-product, vendor/cm/config/common.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/zte/warp2/warp2-vendor.mk)
+#$(call inherit-product-if-exists, vendor/zte/warp2/warp2-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/zte/warp2/overlay
 
@@ -21,17 +21,19 @@ PRODUCT_COPY_FILES += \
 
 ## Root
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/root/init.2ndstg.rc:root/init.2ndstg.rc \
 	$(LOCAL_PATH)/root/init.warp2.rc:root/init.warp2.rc \
-	$(LOCAL_PATH)/root/ueventd.rc:root/ueventd.rc \
-	$(LOCAL_PATH)/root/ueventd.goldfish.rc:root/ueventd.goldfish.rc \
+	$(LOCAL_PATH)/root/init.2ndstg.rc:root/init.2ndstg.rc \
+	$(LOCAL_PATH)/root/logo.bmp:root/logo.bmp \
 	$(LOCAL_PATH)/root/init.qcom.rc:root/init.qcom.rc \
 	$(LOCAL_PATH)/root/init.qcom.sh:root/init.qcom.sh \
 	$(LOCAL_PATH)/root/init.qcom.usb.rc:root/init.qcom.usb.rc \
-	$(LOCAL_PATH)/root/init.qcom.usb.sh:root/init.qcom.usb.sh \
-	$(LOCAL_PATH)/root/logo.bmp:root/logo.bmp \
-	$(LOCAL_PATH)/root/init:rot/init \
-	$(LOCAL_PATH)/root/init.rc:root/init.rc
+	$(LOCAL_PATH)/root/init.qcom.usb.sh:root/init.qcom.usb.sh
+#	$(LOCAL_PATH)/root/ueventd.rc:root/ueventd.rc \
+#	$(LOCAL_PATH)/root/ueventd.goldfish.rc:root/ueventd.goldfish.rc \
+#	$(LOCAL_PATH)/root/init.goldfish.rc:root/init.goldfish.rc \
+#	$(LOCAL_PATH)/root/sbin/usbconfig:root/sbin/usbconfig \
+#	$(LOCAL_PATH)/root/init:root/init \
+#	$(LOCAL_PATH)/root/init.rc:root/init.rc
 
 ## Recovery
 PRODUCT_COPY_FILES += \
@@ -127,8 +129,8 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    gralloc.msm7x30 \
-    hwcomposer.msm7x30 \
+	libgralloc \
+	libhwcomposer \
 	libgenlock
 
 # Keychar & Keylayout
@@ -163,10 +165,22 @@ PRODUCT_COPY_FILES += \
 
 ## Media
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/etc/firmware/cyttsp_7630_fluid.hex:system/etc/firmware/cyttsp_7630_fluid.hex \
     $(LOCAL_PATH)/prebuilts/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
     $(LOCAL_PATH)/prebuilts/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
     $(LOCAL_PATH)/prebuilts/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
     $(LOCAL_PATH)/prebuilts/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
+    $(LOCAL_PATH)/prebuilts/lib/egl/egl.cfg:system/lib/egl/egl.cfg \
+    $(LOCAL_PATH)/prebuilts/lib/egl/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
+    $(LOCAL_PATH)/prebuilts/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
+    $(LOCAL_PATH)/prebuilts/lib/egl/libGLES_android.so:system/lib/egl/libGLES_android.so \
+    $(LOCAL_PATH)/prebuilts/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
+    $(LOCAL_PATH)/prebuilts/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
+    $(LOCAL_PATH)/prebuilts/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
+    $(LOCAL_PATH)/prebuilts/lib/libC2D2.so:system/lib/libC2D2.so \
+    $(LOCAL_PATH)/prebuilts/lib/libgsl.so:system/lib/libgsl.so \
+    $(LOCAL_PATH)/prebuilts/lib/libOpenVG.so:system/lib/libOpenVG.so \
+    $(LOCAL_PATH)/prebuilts/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so \
     $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_command_control.fw:system/etc/firmware/vidc_720p_command_control.fw \
     $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_h263_dec_mc.fw:system/etc/firmware/vidc_720p_h263_dec_mc.fw \
     $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_h264_dec_mc.fw:system/etc/firmware/vidc_720p_h264_dec_mc.fw \
@@ -175,6 +189,17 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_mp4_enc_mc.fw:system/etc/firmware/vidc_720p_mp4_enc_mc.fw \
     $(LOCAL_PATH)/prebuilts/etc/firmware/vidc_720p_vc1_dec_mc.fw:system/etc/firmware/vidc_720p_vc1_dec_mc.fw \
 	$(LOCAL_PATH)/prebuilts/etc/firmware/N970_N861_PR1183396_s2202_32313037.img:system/etc/firmware/N970_N861_PR1183396_s2202_32313037.img
+
+# extra stuff
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/prebuilts/libc.so:system/lib/libc.so \
+	$(LOCAL_PATH)/prebuilts/bin/ip6tables:system/bin/ip6tables \
+	$(LOCAL_PATH)/prebuilts/bin/iptables:system/bin/iptables \
+	$(LOCAL_PATH)/prebuilts/bin/netd:system/bin/netd \
+	$(LOCAL_PATH)/prebuilts/bin/bluetoothd:system/bin/bluetoothd \
+	$(LOCAL_PATH)/prebuilts/bin/cnd:system/bin/cnd \
+	$(LOCAL_PATH)/prebuilts/bin/hciattach:system/bin/hciattach \
+	$(LOCAL_PATH)/prebuilts/bin/hdmid:system/bin/hdmi
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_warp2

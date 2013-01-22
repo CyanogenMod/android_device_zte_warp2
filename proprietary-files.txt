@@ -3,6 +3,9 @@ bin/bluetoothd
 bin/cnd
 bin/hciattach
 bin/hdmid
+bin/ip6tables
+bin/iptables
+bin/netd
 bin/mm-adec-omxaac-test
 bin/mm-adec-omxadpcm-test
 bin/mm-adec-omxamr-test
@@ -67,7 +70,7 @@ lib/libdss.so
 lib/libdsutils.so
 lib/libEGL.so
 lib/libgemini.so
-lib/libgenlock.so
+#lib/libgenlock.so
 lib/libGLESv1_CM.so
 lib/libGLESv2.so
 lib/libGLESv2_dbg.so
@@ -123,6 +126,7 @@ lib/libv8.so
 lib/libwebrtc_audio_preprocessing.so
 lib/libwms.so
 lib/libwmsts.so
+lib/libc.so
 
 # etc dir
 etc/init.qcom.bt.sh

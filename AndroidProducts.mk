@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/device_warp2.mk
+    $(LOCAL_DIR)/full_warp2.mk
