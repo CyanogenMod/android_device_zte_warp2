@@ -35,7 +35,6 @@ PRODUCT_COPY_FILES += \
 #	$(LOCAL_PATH)/root/sbin/usbconfig:root/sbin/usbconfig \
 #	$(LOCAL_PATH)/root/init:root/init \
 
-
 ## Recovery
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/recovery/rmt_storage_recovery:recovery/root/sbin/rmt_storage_recovery \
@@ -130,8 +129,8 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-	libgralloc \
-	libhwcomposer \
+    gralloc.msm7x30 \
+    hwcomposer.msm7x30 \
 	libgenlock
 
 # Keychar & Keylayout
@@ -200,7 +199,8 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/bin/bluetoothd:system/bin/bluetoothd \
 	$(LOCAL_PATH)/prebuilts/bin/cnd:system/bin/cnd \
 	$(LOCAL_PATH)/prebuilts/bin/hciattach:system/bin/hciattach \
-	$(LOCAL_PATH)/prebuilts/bin/hdmid:system/bin/hdmi
+	$(LOCAL_PATH)/prebuilts/bin/hdmid:system/bin/hdmi \
+	$(LOCAL_PATH)/prebuilts/bin/akmd8962_new:system/bin/akmd8962_new
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_warp2
