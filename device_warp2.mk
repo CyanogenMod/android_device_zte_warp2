@@ -27,13 +27,14 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/root/init.qcom.rc:root/init.qcom.rc \
 	$(LOCAL_PATH)/root/init.qcom.sh:root/init.qcom.sh \
 	$(LOCAL_PATH)/root/init.qcom.usb.rc:root/init.qcom.usb.rc \
-	$(LOCAL_PATH)/root/init.qcom.usb.sh:root/init.qcom.usb.sh
+	$(LOCAL_PATH)/root/init.qcom.usb.sh:root/init.qcom.usb.sh \
+	$(LOCAL_PATH)/root/init.rc:root/init.rc
 #	$(LOCAL_PATH)/root/ueventd.rc:root/ueventd.rc \
 #	$(LOCAL_PATH)/root/ueventd.goldfish.rc:root/ueventd.goldfish.rc \
 #	$(LOCAL_PATH)/root/init.goldfish.rc:root/init.goldfish.rc \
 #	$(LOCAL_PATH)/root/sbin/usbconfig:root/sbin/usbconfig \
 #	$(LOCAL_PATH)/root/init:root/init \
-#	$(LOCAL_PATH)/root/init.rc:root/init.rc
+
 
 ## Recovery
 PRODUCT_COPY_FILES += \
@@ -192,7 +193,7 @@ PRODUCT_COPY_FILES += \
 
 # extra stuff
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/prebuilts/libc.so:system/lib/libc.so \
+	$(LOCAL_PATH)/prebuilts/lib/libc.so:system/lib/libc.so \
 	$(LOCAL_PATH)/prebuilts/bin/ip6tables:system/bin/ip6tables \
 	$(LOCAL_PATH)/prebuilts/bin/iptables:system/bin/iptables \
 	$(LOCAL_PATH)/prebuilts/bin/netd:system/bin/netd \

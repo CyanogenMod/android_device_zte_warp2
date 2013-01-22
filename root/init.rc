@@ -132,37 +132,26 @@ on fs
     mount yaffs2 mtd@persist /persist nosuid nodev
 	
 on emmc-fs
-# mount mmc partitions
-    # wait /dev/block/mmcblk0p12
-    # mount ext4 /dev/block/mmcblk0p12 /system ro barrier=1
-    # wait /dev/block/mmcblk0p13
-    # exec /system/bin/e2fsck -p /dev/block/mmcblk0p13
-    # mount ext4 /dev/block/mmcblk0p13 /data nosuid nodev barrier=1 noauto_da_alloc
-    # mount ext4 /dev/block/mmcblk0p14 /persist nosuid nodev barrier=1
-    # mount ext4 /dev/block/mmcblk0p15 /cache nosuid nodev barrier=1
+	#-----system---------------------
     wait /dev/block/mmcblk0p15
     mount ext4 /dev/block/mmcblk0p15 /system ro barrier=1
     chmod 0777 /system/bin/ext4check.sh
     #------carrier parition---------- 
-    wait /dev/block/mmcblk0p16
-    exec /system/bin/sh -c "/system/bin/ext4check.sh CARRIER /dev/block/mmcblk0p16"    
-    mount ext4 /dev/block/mmcblk0p16 /carrier nosuid nodev barrier=1
-    #------userdata---------- 
     wait /dev/block/mmcblk0p19
-    exec /system/bin/sh -c "/system/bin/ext4check.sh USERDATA /dev/block/mmcblk0p19"    
-    mount ext4 /dev/block/mmcblk0p19 /data nosuid nodev barrier=1
+    exec /system/bin/sh -c "/system/bin/ext4check.sh CARRIER /dev/block/mmcblk0p19"    
+    mount ext4 /dev/block/mmcblk0p19 /carrier nosuid nodev barrier=1
+    #------userdata---------- 
+    wait /dev/block/mmcblk0p18
+    exec /system/bin/sh -c "/system/bin/ext4check.sh USERDATA /dev/block/mmcblk0p18"    
+    mount ext4 /dev/block/mmcblk0p18 /data nosuid nodev barrier=1
     #------persist---------- 
     wait /dev/block/mmcblk0p7
     exec /system/bin/sh -c "/system/bin/ext4check.sh PERSIST /dev/block/mmcblk0p7"
     mount ext4 /dev/block/mmcblk0p7 /persist nosuid nodev barrier=1
     #------cache---------- 
-    wait /dev/block/mmcblk0p18
-    exec /system/bin/sh -c "/system/bin/ext4check.sh CACHE /dev/block/mmcblk0p18"    
-    mount ext4 /dev/block/mmcblk0p18 /cache nosuid nodev barrier=1
-    #------fixup last partition----------
-    #wait /dev/block/mmcblk0p19
-    #exec /system/bin/sh -c "/system/bin/fixebr.sh mmcblk0"
-    #exec /system/bin/sh -c "/system/bin/vfat_valid.sh /dev/block/mmcblk0p19 INTERNAL_SD"
+    wait /dev/block/mmcblk0p17
+    exec /system/bin/sh -c "/system/bin/ext4check.sh CACHE /dev/block/mmcblk0p17"    
+    mount ext4 /dev/block/mmcblk0p17 /cache nosuid nodev barrier=1
 	
 on post-fs
     # once everything is setup, no need to modify /
@@ -523,6 +512,7 @@ service netd /system/bin/netd
     class main
     socket netd stream 0660 root system
     socket dnsproxyd stream 0660 root inet
+    socket mdns stream 0660 root system
 
 service debuggerd /system/bin/debuggerd
     class main
@@ -720,4 +710,4 @@ service hostapd /system/bin/hostapd -dddd /data/misc/wifi/hostapd.conf
 service copypartnerapp /system/bin/copypartnerapp
     class late_start 
     oneshot
-#end ZTE_LILEYANG_PARTNERAPP    
+#end ZTE_LILEYANG_PARTNERAPP
