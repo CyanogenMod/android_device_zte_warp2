@@ -20,7 +20,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/oprofile.ko:system/lib/modules/oprofile.ko \
     $(LOCAL_PATH)/qce.ko:system/lib/modules/qce.ko \
     $(LOCAL_PATH)/qcedev.ko:system/lib/modules/qcedev.ko \
-    $(LOCAL_PATH)/qcrypto.ko:system/lib/modules/qcrypo.ko \
+    $(LOCAL_PATH)/qcrypto.ko:system/lib/modules/qcrypto.ko \
     $(LOCAL_PATH)/reset_modem.ko:system/lib/modules/reset_modem.ko \
     $(LOCAL_PATH)/sch_dsmark.ko:system/lib/modules/sch_dsmark.ko \
     $(LOCAL_PATH)/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko
