@@ -153,11 +153,24 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/vold.fstab:system/etc/vold.fstab
 
+# Audio
+PRODUCT_PACKAGES += \
+    audio_policy.msm7x30 \
+    audio.primary.msm7x30
+
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:obj/lib/libaudioalsa.so \
+	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:system/lib/libaudioalsa.so
+
 # Wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     $(LOCAL_PATH)/prebuilts/etc/wifi/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
+    $(LOCAL_PATH)/prebuilts/bin/wpa_supplicant:system/bin/wpa_supplicant \
     $(LOCAL_PATH)/prebuilts/etc/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
+
+PRODUCT_PACKAGES += \
+	libwpa_client
 
 # Common Qualcomm scripts
 PRODUCT_COPY_FILES += \
@@ -183,6 +196,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
     $(LOCAL_PATH)/prebuilts/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
     $(LOCAL_PATH)/prebuilts/lib/libC2D2.so:system/lib/libC2D2.so \
+    $(LOCAL_PATH)/prebuilts/lib/libEGL.so:system/lib/libEGL.so \
+    $(LOCAL_PATH)/prebuilts/lib/libGLESv1_CM.so:system/lib/libGLESv1_CM.so \
+    $(LOCAL_PATH)/prebuilts/lib/libGLESv2.so:system/lib/libGLESv2.so \
+    $(LOCAL_PATH)/prebuilts/lib/libGLESv2_dbg.so:system/lib/libGLESv2_dbg.so \
     $(LOCAL_PATH)/prebuilts/lib/libgsl.so:system/lib/libgsl.so \
     $(LOCAL_PATH)/prebuilts/lib/libOpenVG.so:system/lib/libOpenVG.so \
     $(LOCAL_PATH)/prebuilts/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so \
