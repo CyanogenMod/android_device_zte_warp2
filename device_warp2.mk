@@ -11,7 +11,7 @@ DEVICE_PACKAGE_OVERLAYS += device/zte/warp2/overlay
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 # Kernel Modules
-$(call inherit-product-if-exists, $(LOCAL_PATH)/prebuilts/modules/modules.mk)
+$(call inherit-product-if-exists, $(LOCAL_PATH)/prebuilts/lib/modules/modules.mk)
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -19,7 +19,7 @@ endif
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
-## Root
+## Ramdisk
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/root/init.warp2.rc:root/init.warp2.rc \
 	$(LOCAL_PATH)/root/init.2ndstg.rc:root/init.2ndstg.rc \
@@ -28,12 +28,10 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/root/init.qcom.sh:root/init.qcom.sh \
 	$(LOCAL_PATH)/root/init.qcom.usb.rc:root/init.qcom.usb.rc \
 	$(LOCAL_PATH)/root/init.qcom.usb.sh:root/init.qcom.usb.sh \
-	$(LOCAL_PATH)/root/init.rc:root/init.rc
-#	$(LOCAL_PATH)/root/ueventd.rc:root/ueventd.rc \
-#	$(LOCAL_PATH)/root/ueventd.goldfish.rc:root/ueventd.goldfish.rc \
-#	$(LOCAL_PATH)/root/init.goldfish.rc:root/init.goldfish.rc \
-#	$(LOCAL_PATH)/root/sbin/usbconfig:root/sbin/usbconfig \
-#	$(LOCAL_PATH)/root/init:root/init \
+	$(LOCAL_PATH)/root/init.rc:root/init.rc \
+	$(LOCAL_PATH)/root/ueventd.rc:root/ueventd.rc \
+	$(LOCAL_PATH)/root/sbin/usbconfig:root/sbin/usbconfig \
+	$(LOCAL_PATH)/root/init:root/init
 
 ## Recovery
 PRODUCT_COPY_FILES += \
@@ -133,6 +131,13 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm7x30 \
 	libgenlock
 
+## Bluetooth
+PRODUCT_PACKAGES += \
+	hciattach \
+	hciconfig \
+	hcitool \
+	hdmid
+
 # Keychar & Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/usr/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
@@ -192,15 +197,13 @@ PRODUCT_COPY_FILES += \
 
 # extra stuff
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/prebuilts/lib/libc.so:system/lib/libc.so \
 	$(LOCAL_PATH)/prebuilts/bin/ip6tables:system/bin/ip6tables \
 	$(LOCAL_PATH)/prebuilts/bin/iptables:system/bin/iptables \
-	$(LOCAL_PATH)/prebuilts/bin/netd:system/bin/netd \
 	$(LOCAL_PATH)/prebuilts/bin/bluetoothd:system/bin/bluetoothd \
 	$(LOCAL_PATH)/prebuilts/bin/cnd:system/bin/cnd \
-	$(LOCAL_PATH)/prebuilts/bin/hciattach:system/bin/hciattach \
 	$(LOCAL_PATH)/prebuilts/bin/hdmid:system/bin/hdmi \
-	$(LOCAL_PATH)/prebuilts/bin/akmd8962_new:system/bin/akmd8962_new
+	$(LOCAL_PATH)/prebuilts/bin/akmd8962_new:system/bin/akmd8962_new \
+	$(LOCAL_PATH)/prebuilts/bin/rmt_storage:system/bin/rmt_storage
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_warp2
