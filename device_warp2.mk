@@ -4,7 +4,7 @@ $(call inherit-product, vendor/cm/config/common.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-#$(call inherit-product-if-exists, vendor/zte/warp2/warp2-vendor.mk)
+$(call inherit-product-if-exists, vendor/zte/warp2/warp2-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/zte/warp2/overlay
 
@@ -138,7 +138,7 @@ PRODUCT_PACKAGES += \
 	hcitool \
 	hdmid
 
-# Keychar & Keylayout
+# Keychar, Keylayout, & touchscreen
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/usr/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
     $(LOCAL_PATH)/prebuilts/usr/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \
@@ -147,31 +147,38 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/usr/keylayout/warp2_keypad.kl:system/usr/keylayout/warp2_keypad.kl \
     $(LOCAL_PATH)/prebuilts/usr/keylayout/msm_tma300_ts.kl:system/usr/keylayout/msm_tma300_ts.kl \
     $(LOCAL_PATH)/prebuilts/usr/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
-    $(LOCAL_PATH)/prebuilts/usr/keylayout/syna-touchscreen.kl:system/usr/keylayout/syna-touchscreen.kl
+    $(LOCAL_PATH)/prebuilts/usr/keylayout/syna-touchscreen.kl:system/usr/keylayout/syna-touchscreen.kl \
+	$(LOCAL_PATH)/prebuilts/usr/idc/syna-touchscreen.idc:system/usr/idc/syna-touchscreen.idc
 
 # SDCard
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/vold.fstab:system/etc/vold.fstab
 
 # Audio
-#PRODUCT_PACKAGES += \
-#    audio_policy.msm7x30 \
-#    audio.primary.msm7x30
+PRODUCT_PACKAGES += \
+    audio_policy.msm7x30 \
+    audio.primary.msm7x30
 
-#PRODUCT_COPY_FILES += \
-#	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:obj/lib/libaudioalsa.so \
-#	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:system/lib/libaudioalsa.so
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:obj/lib/libaudioalsa.so \
+	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:system/lib/libaudioalsa.so
 
 # Camera
-#PRODUCT_PACKAGES += \
-#    LegacyCamera \
-#    camera.msm7x30
+PRODUCT_PACKAGES += \
+    LegacyCamera \
+    camera.msm7x30
+
+## liblights
+PRODUCT_PACKAGES += \
+	lights.warp2 \
+	sensors.default
 
 # Wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     $(LOCAL_PATH)/prebuilts/etc/wifi/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
     $(LOCAL_PATH)/prebuilts/bin/wpa_supplicant:system/bin/wpa_supplicant \
+    $(LOCAL_PATH)/prebuilts/bin/wpa_cli:system/bin/wpa_cli \
     $(LOCAL_PATH)/prebuilts/etc/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
 
 # Common Qualcomm scripts

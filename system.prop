@@ -9,10 +9,10 @@ dalvik.vm.dexopt-data-only=1
 com.qc.hardware=true
 
 ro.ril.disable.power.collapse=0
-ro.telephony.ril_class=ZTERIL2
+ro.telephony.ril_class=ZTEQualcommRIL
 ro.ril.def.preferred.network=4
 ro.telephony.default_network=4
-rild.libpath=/system/lib/libril-qc-1.so
+rild.libpath=/system/lib/libril-qc-qmi-1.so
 rild.libargs=-d /dev/smd0
 persist.rild.nitz_plmn=
 persist.rild.nitz_long_ons_0=
@@ -23,7 +23,7 @@ persist.rild.nitz_short_ons_0=
 persist.rild.nitz_short_ons_1=
 persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
-ril.subscription.types=NV
+ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
 
 hwui.render_dirty_regions=false
@@ -36,8 +36,7 @@ dev.pm.dyn_samplingrate=1
 video.accelerate.hw=1
 debug.performance.tuning=1
 windowsmgr.max_events_per_sec=150
-ro.sf.lcd_density=240
-ro.sf.hwrotation=180
+ro.sf.lcd_density=210
 debug.mdpcomp.maxlayer=0
 debug.gr.swapinterval=0
 persist.sys.ui.hw=0
@@ -93,7 +92,7 @@ ro.hdmi.enable=true
 #
 # system props for SD card emulation of emmc partition
 #
-ro.emmc.sdcard.partition=17
+ro.emmc.sdcard.partition=16
 
 #system props for time-services
 persist.timed.enable=true
