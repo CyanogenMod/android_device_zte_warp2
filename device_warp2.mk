@@ -166,7 +166,21 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_PACKAGES += \
     LegacyCamera \
-    camera.msm7x30
+    camera.warp2 \
+	libcamera
+
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/prebuilts/bin/mm-qcamera-test:system/bin/mm-qcamera-test \
+	$(LOCAL_PATH)/prebuilts/bin/mm-qcamera-testsuite-client:system/bin/mm-qcamera-testsuite-client \
+	$(LOCAL_PATH)/prebuilts/bin/v4l2-qcamera-app:system/bin/v4l2-qcamera-app \
+	$(LOCAL_PATH)/prebuilts/lib/libgemini.so:system/lib/libgemini.so \
+	$(LOCAL_PATH)/prebuilts/lib/libmmipl.so:system/lib/libmmipl.so \
+	$(LOCAL_PATH)/prebuilts/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+	$(LOCAL_PATH)/prebuilts/lib/libmmjpeg.so:obj/lib/libmmjpeg.so \
+	$(LOCAL_PATH)/prebuilts/lib/liboemcamera.so:system/lib/liboemcamera.so \
+	$(LOCAL_PATH)/prebuilts/lib/liboemcamera.so:obj/lib/liboemcamera.so \
+	$(LOCAL_PATH)/prebuilts/lib/libcamera_client.so:obj/lib/libcamera_client.so \
+	$(LOCAL_PATH)/prebuilts/lib/libcamera_client.so:system/lib/libcamera_client.so
 
 ## liblights
 PRODUCT_PACKAGES += \
@@ -180,6 +194,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/bin/wpa_supplicant:system/bin/wpa_supplicant \
     $(LOCAL_PATH)/prebuilts/bin/wpa_cli:system/bin/wpa_cli \
     $(LOCAL_PATH)/prebuilts/etc/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
+
+PRODUCT_PACKAGES += \
+	libwpa_client
 
 # Common Qualcomm scripts
 PRODUCT_COPY_FILES += \
@@ -223,10 +240,28 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/bin/iptables:system/bin/iptables \
 	$(LOCAL_PATH)/prebuilts/bin/bluetoothd:system/bin/bluetoothd \
 	$(LOCAL_PATH)/prebuilts/bin/cnd:system/bin/cnd \
-	$(LOCAL_PATH)/prebuilts/bin/hdmid:system/bin/hdmi \
 	$(LOCAL_PATH)/prebuilts/bin/akmd8962_new:system/bin/akmd8962_new \
 	$(LOCAL_PATH)/prebuilts/bin/rmt_storage:system/bin/rmt_storage
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_warp2
 PRODUCT_DEVICE := warp2
+
+#### Goo Manager support
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.goo.developerid=playfulgod \
+	ro.goo.rom=CM10Sequent \
+	ro.goo.version=$(shell date +%Y%m%d )
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/app/com.s0up.goomanager-1.apk:system/app/com.s0up.goomanager-1.apk
+
+### ROM Manager support
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.rommanager.developerid=playfulgod \
+	ro.modversion=$(shell date +%Y%m%d ) 
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/app/com.koushikdutta.rommanager-1.apk:system/app/com.koushikdutta.rommanager-1.apk
+
+

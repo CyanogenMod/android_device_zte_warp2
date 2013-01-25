@@ -35,19 +35,16 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := warp2
 
 #Browser
 TARGET_FORCE_CPU_UPLOAD := true
-DYNAMIC_SHARED_LIBV8SO := true
+#DYNAMIC_SHARED_LIBV8SO := true
 WITH_JIT := true
 ENABLE_JSC_JIT := true
 JS_ENGINE := v8
-WITH_DEXPREOPT := true
 
 # Wi-Fi
 WIFI_BAND := 802_11_ABGN
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-#BOARD_HOSTAPD_DRIVER := CFG80211
-#BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_WLAN_DEVICE := bcmdhd
 WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/fw_bcmdhd_apsta.bin"
@@ -57,6 +54,9 @@ WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/bcmdhd/parameters/firmware_path"
 BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_USES_QCOM_GPS := true
+
+#RIL
+#BOARD_PROVIDES_LIBRIL := true
 
 # Audio
 TARGET_PROVIDES_LIBAUDIO := true
