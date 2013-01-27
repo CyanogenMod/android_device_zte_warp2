@@ -91,7 +91,6 @@ PRODUCT_PACKAGES += \
 	ast-mm-vdec-omx-test \
 	com.android.future.usb.accessory \
 	gps.default \
-	libaudioutils \
 	libdivxdrmdecrypt \
 	libinvensense_hal \
 	liblasic \
@@ -112,6 +111,7 @@ PRODUCT_PACKAGES += \
 	libOpenMAXAL \
 	libOpenSLES \
 	librs_jni \
+	libmedia_jni \
 	libstagefrighthw \
 	LiveWallpapers \
 	LiveWallpapersPicker \
@@ -127,6 +127,7 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
+	copybit.msm7x30 \
     gralloc.msm7x30 \
     hwcomposer.msm7x30 \
 	libgenlock
@@ -150,6 +151,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/usr/keylayout/syna-touchscreen.kl:system/usr/keylayout/syna-touchscreen.kl \
 	$(LOCAL_PATH)/prebuilts/usr/idc/syna-touchscreen.idc:system/usr/idc/syna-touchscreen.idc
 
+# APN
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/prebuilts/etc/apns-conf.xml:system/etc/apns-conf.xml	
+
 # SDCard
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/vold.fstab:system/etc/vold.fstab
@@ -157,11 +162,14 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_PACKAGES += \
     audio_policy.msm7x30 \
-    audio.primary.msm7x30
+    audio.primary.msm7x30 \
+    audio.a2dp.default \
+	libaudioutils
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:obj/lib/libaudioalsa.so \
-	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:system/lib/libaudioalsa.so
+	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:system/lib/libaudioalsa.so \
+	$(LOCAL_PATH)/prebuilts/etc/audio_policy.conf:system/etc/audio_policy.conf
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -246,6 +254,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_warp2
 PRODUCT_DEVICE := warp2
+
+PRODUCT_PROPERTY_OVERRIDES += ro.carrier=Boost Mobile
 
 #### Goo Manager support
 PRODUCT_PROPERTY_OVERRIDES += \
