@@ -152,8 +152,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/usr/idc/syna-touchscreen.idc:system/usr/idc/syna-touchscreen.idc
 
 # APN
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/prebuilts/etc/apns-conf.xml:system/etc/apns-conf.xml	
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/prebuilts/etc/apns-conf.xml:system/etc/apns-conf.xml	
 
 # SDCard
 PRODUCT_COPY_FILES += \
@@ -169,7 +168,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:obj/lib/libaudioalsa.so \
 	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:system/lib/libaudioalsa.so \
-	$(LOCAL_PATH)/prebuilts/etc/audio_policy.conf:system/etc/audio_policy.conf
+	$(LOCAL_PATH)/prebuilts/etc/audio_policy.conf:system/vendor/etc/audio_policy.conf
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -205,6 +204,10 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
 	libwpa_client
+
+PRODUCT_PACKAGES += \
+	Torch \
+	WiFiDirectDemo
 
 # Common Qualcomm scripts
 PRODUCT_COPY_FILES += \

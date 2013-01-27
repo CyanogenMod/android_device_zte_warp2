@@ -16,7 +16,7 @@
     <int name="countOfHighPriorityMessage">0</int>
     <string name="uaProfTagName">Profile</string>
     <string name="userAgent">N861 Boost</string>
-	<string name="mmsproxy">68.28.31.7</string>
+	<string name="mmsproxy"></string>
     <string name="mmscurl">http://mm.myboostmobile.com</string>
     <string name="uaProfUrl">http://device.sprintpcs.com/ZTE/N861-BOOST/N861V1.0.0B04.rdf</string>
     <string name="PluggerCenter">9798</string>

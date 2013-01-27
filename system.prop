@@ -60,6 +60,8 @@ persist.sys.use_dithering = 0
 #possible screen glitch fix
 debug.gr.numframebuffers=3
 
+ro.sf.lcd_density=240
+
 
 #usb
 persist.sys.usb.config=mtp,adb
