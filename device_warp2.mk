@@ -200,7 +200,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/wifi/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
     $(LOCAL_PATH)/prebuilts/bin/wpa_supplicant:system/bin/wpa_supplicant \
     $(LOCAL_PATH)/prebuilts/bin/wpa_cli:system/bin/wpa_cli \
-    $(LOCAL_PATH)/prebuilts/etc/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
+	$(LOCAL_PATH)/prebuilts/lib/libwidevine.so:system/lib/libwidevine.so \
+    $(LOCAL_PATH)/prebuilts/etc/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal \
+    $(LOCAL_PATH)/prebuilts/etc/firmware/fw_bcmdhd.bin:system/etc/firmware/fw_bcmdhd.bin \
+    $(LOCAL_PATH)/prebuilts/etc/firmware/fw_bcmdhd_apsta.bin:system/etc/firmware/fw_bcmdhd_apsta.bin \
+    $(LOCAL_PATH)/prebuilts/etc/firmware/fw_bcmdhd_p2p.bin:system/etc/firmware/fw_bcmdhd_p2p.bin
 
 PRODUCT_PACKAGES += \
 	libwpa_client
@@ -218,7 +222,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
     $(LOCAL_PATH)/prebuilts/etc/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh
 
-## Media
+## Media & Display
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/firmware/cyttsp_7630_fluid.hex:system/etc/firmware/cyttsp_7630_fluid.hex \
     $(LOCAL_PATH)/prebuilts/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
@@ -254,11 +258,14 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/bin/akmd8962_new:system/bin/akmd8962_new \
 	$(LOCAL_PATH)/prebuilts/bin/rmt_storage:system/bin/rmt_storage
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+PRODUCT_BUILD_PROP_OVERRIDES += \
+	BUILD_UTC_DATE=0 \
+	persist.audio.vr.enable=true \
+	ro.carrier=Boost Mobile \
+	ro.baseband=N861B01
+
 PRODUCT_NAME := full_warp2
 PRODUCT_DEVICE := warp2
-
-PRODUCT_PROPERTY_OVERRIDES += ro.carrier=Boost Mobile
 
 #### Goo Manager support
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -270,7 +277,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/app/com.s0up.goomanager-1.apk:system/app/com.s0up.goomanager-1.apk
 
 ### ROM Manager support
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_BUILD_PROP_OVERRIDES += \
 	ro.rommanager.developerid=playfulgod \
 	ro.modversion=$(shell date +%Y%m%d ) 
 

@@ -50,7 +50,6 @@ on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
 
-
 on boot-pause
     # ZTE ADD
     exec system/bin/battery_charging
@@ -386,7 +385,7 @@ service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -c /system/e
 	#   user wifi
 	#   group wifi inet keystore
 	class main
-	# socket wpa_wlan0 dgram 660 wifi wifi
+	socket wpa_wlan0 dgram 660 wifi wifi
 	disabled
 	oneshot	
 
@@ -463,30 +462,6 @@ service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
     disabled
     oneshot
     
-#ZTE_LOG_WXW_001, begin, 20101013
-#ZTE_LOG_CXH_0322
-service getlog /system/bin/getlogtofile
-    class late_start
-    user root
-    disabled
-    oneshot
-#ZTE_LOG_CXH_0322
-#ZTE_wangtao_TESTMODE_001 20100416 ---
-
-#ZTE_LOG_CXH_0322
-on property:persist.sys.ztelog.enable=1
-    start getlog
-
-on property:persist.sys.ztelog.enable=0
-    stop getlog
-#ZTE_LOG_CXH_0322
-
-#ZTE_LOG_WXW_001, end, 20101013
-
-service qcom-wifi /system/bin/sh /system/etc/init.qcom.wifi.sh
-    class late_start
-    oneshot
-
 on property:init.svc.bootanim=stopped
     start qcom-post-boot
 
@@ -597,7 +572,6 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
     disabled
     oneshot
 
-#ZTE_WANGZY_PROXIMITY_101014
 service proximity_init /system/bin/proximity.init -r
     class late_start 
     disabled
@@ -605,17 +579,10 @@ service proximity_init /system/bin/proximity.init -r
     
 on property:dev.bootcomplete=1
     start proximity_init
-#ZTE_WANGZY_PROXIMITY_101014 
 
 service akmd /system/bin/akmd8962_new -m 2 
     class main
     oneshot
-#ZTE_AKMD_fya 20111020 --------------
-
-service sprintdiag /system/bin/sprintdiag
-    class late_start
-    user root
-    group radio cache inet misc audio qcom_oncrpc diag
 
 service hciattach-bcm /system/bin/brcm_patchram_plus --enable_hci  --baudrate 3000000 --enable_4330 --patchram /etc/BCM4330B1_002.001.032.0518.0520.hcd --enable_lpm /dev/ttyHS0
     class late_start 
@@ -624,21 +591,3 @@ service hciattach-bcm /system/bin/brcm_patchram_plus --enable_hci  --baudrate 30
     disabled
     oneshot
 
-#ZTE_HWY_FOR_FORMAT_CARRIER 20120427 begin                      
-service formatcarrier /system/bin/sh /system/bin/hm_format_carrier.sh                      
-    class late_start                                    
-    user root                                   
-    oneshot                                                           
-    disabled                                                                         
-#ZTE_HWY_FOR_FORMAT_CARRIER 20120427 end   
-
-# FROM qcom\msm7630_surf\init.target.rc  
-#on property:sys.radio.shutdown=true
-#    write  /sys/devices/platform/rs300000a7.65536/force_sync 1
-#    write  /sys/devices/platform/rs300100a7.65536/force_sync 1
-
-on property:sys.radio.shutdown=true
-   exec /system/bin/sh /system/etc/init.qcom.efs.sync.sh
-   user root
-   group root
-	
