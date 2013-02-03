@@ -8,6 +8,8 @@ $(call inherit-product-if-exists, vendor/zte/warp2/warp2-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/zte/warp2/overlay
 
+$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
+
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 # Kernel Modules
@@ -21,23 +23,23 @@ PRODUCT_COPY_FILES += \
 
 ## Ramdisk
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/root/init.warp2.rc:root/init.warp2.rc \
-	$(LOCAL_PATH)/root/init.2ndstg.rc:root/init.2ndstg.rc \
-	$(LOCAL_PATH)/root/logo.bmp:root/logo.bmp \
-	$(LOCAL_PATH)/root/init.qcom.rc:root/init.qcom.rc \
-	$(LOCAL_PATH)/root/init.qcom.sh:root/init.qcom.sh \
-	$(LOCAL_PATH)/root/init.qcom.usb.rc:root/init.qcom.usb.rc \
-	$(LOCAL_PATH)/root/init.qcom.usb.sh:root/init.qcom.usb.sh \
-	$(LOCAL_PATH)/root/init.rc:root/init.rc \
-	$(LOCAL_PATH)/root/ueventd.rc:root/ueventd.rc \
-	$(LOCAL_PATH)/root/sbin/usbconfig:root/sbin/usbconfig \
-	$(LOCAL_PATH)/root/init:root/init
+	$(LOCAL_PATH)/prebuilts/root/init.warp2.rc:root/init.warp2.rc \
+	$(LOCAL_PATH)/prebuilts/root/init.2ndstg.rc:root/init.2ndstg.rc \
+	$(LOCAL_PATH)/prebuilts/root/logo.bmp:root/logo.bmp \
+	$(LOCAL_PATH)/prebuilts/root/init.qcom.rc:root/init.qcom.rc \
+	$(LOCAL_PATH)/prebuilts/root/init.qcom.sh:root/init.qcom.sh \
+	$(LOCAL_PATH)/prebuilts/root/init.qcom.usb.rc:root/init.qcom.usb.rc \
+	$(LOCAL_PATH)/prebuilts/root/init.qcom.usb.sh:root/init.qcom.usb.sh \
+	$(LOCAL_PATH)/prebuilts/root/init.rc:root/init.rc \
+	$(LOCAL_PATH)/prebuilts/root/ueventd.rc:root/ueventd.rc \
+	$(LOCAL_PATH)/prebuilts/root/sbin/usbconfig:root/sbin/usbconfig \
+	$(LOCAL_PATH)/prebuilts/root/init:root/init
 
 ## Recovery
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/recovery/rmt_storage_recovery:recovery/root/sbin/rmt_storage_recovery \
-	$(LOCAL_PATH)/recovery/ueventd.rc:recovery/root/ueventd.rc \
-	$(LOCAL_PATH)/recovery/usbconfig:recovery/root/sbin/usbconfig
+	$(LOCAL_PATH)/recovery/rmt_storage_recovery:recovery/prebuilts/root/sbin/rmt_storage_recovery \
+	$(LOCAL_PATH)/recovery/ueventd.rc:recovery/prebuilts/root/ueventd.rc \
+	$(LOCAL_PATH)/recovery/usbconfig:recovery/prebuilts/root/sbin/usbconfig
 
 $(call inherit-product, build/target/product/full.mk)
 
@@ -58,16 +60,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapgrowthlimit=48m \
 	dalvik.vm.heapsize=256m
 
-PRODUCT_LOCALES += hdpi
-
-PRODUCT_AAPT_CONFIG := hdpi
-
 #LLVM for RenderScript
 LLVM_ROOT_PATH := external/llvm
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
-	frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
+	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
 	frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
 	frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
@@ -76,17 +74,22 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
 	frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
 	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+	frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
 	frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
 	frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
+	frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+	frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+	frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
 	frameworks/native/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml \
+	frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
 	frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
 	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+	frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
 	frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
-	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-	frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml
+	frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+	frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml
 
 PRODUCT_PACKAGES += \
-	lights.msm7x30 \
 	applypatch \
 	ast-mm-vdec-omx-test \
 	com.android.future.usb.accessory \
@@ -100,6 +103,7 @@ PRODUCT_PACKAGES += \
 	libmlplatform \
 	libmmjpeg_interface \
 	libmm-omxcore \
+	libmm-video \
 	libOmxAacEnc \
 	libOmxAmrEnc \
 	libOmxCore \
@@ -176,18 +180,9 @@ PRODUCT_PACKAGES += \
     camera.warp2 \
 	libcamera
 
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/prebuilts/bin/mm-qcamera-test:system/bin/mm-qcamera-test \
-	$(LOCAL_PATH)/prebuilts/bin/mm-qcamera-testsuite-client:system/bin/mm-qcamera-testsuite-client \
-	$(LOCAL_PATH)/prebuilts/bin/v4l2-qcamera-app:system/bin/v4l2-qcamera-app \
-	$(LOCAL_PATH)/prebuilts/lib/libgemini.so:system/lib/libgemini.so \
-	$(LOCAL_PATH)/prebuilts/lib/libmmipl.so:system/lib/libmmipl.so \
-	$(LOCAL_PATH)/prebuilts/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
-	$(LOCAL_PATH)/prebuilts/lib/libmmjpeg.so:obj/lib/libmmjpeg.so \
+#PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/lib/liboemcamera.so:system/lib/liboemcamera.so \
-	$(LOCAL_PATH)/prebuilts/lib/liboemcamera.so:obj/lib/liboemcamera.so \
-	$(LOCAL_PATH)/prebuilts/lib/libcamera_client.so:obj/lib/libcamera_client.so \
-	$(LOCAL_PATH)/prebuilts/lib/libcamera_client.so:system/lib/libcamera_client.so
+	$(LOCAL_PATH)/prebuilts/lib/liboemcamera.so:obj/lib/liboemcamera.so
 
 ## liblights
 PRODUCT_PACKAGES += \
@@ -198,16 +193,23 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     $(LOCAL_PATH)/prebuilts/etc/wifi/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
-    $(LOCAL_PATH)/prebuilts/bin/wpa_supplicant:system/bin/wpa_supplicant \
-    $(LOCAL_PATH)/prebuilts/bin/wpa_cli:system/bin/wpa_cli \
 	$(LOCAL_PATH)/prebuilts/lib/libwidevine.so:system/lib/libwidevine.so \
     $(LOCAL_PATH)/prebuilts/etc/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal \
     $(LOCAL_PATH)/prebuilts/etc/firmware/fw_bcmdhd.bin:system/etc/firmware/fw_bcmdhd.bin \
     $(LOCAL_PATH)/prebuilts/etc/firmware/fw_bcmdhd_apsta.bin:system/etc/firmware/fw_bcmdhd_apsta.bin \
-    $(LOCAL_PATH)/prebuilts/etc/firmware/fw_bcmdhd_p2p.bin:system/etc/firmware/fw_bcmdhd_p2p.bin
+    $(LOCAL_PATH)/prebuilts/etc/firmware/fw_bcmdhd_p2p.bin:system/etc/firmware/fw_bcmdhd_p2p.bin \
+    $(LOCAL_PATH)/prebuilts/bin/wpa_supplicant:system/bin/wpa_supplicant \
+    $(LOCAL_PATH)/prebuilts/bin/wpa_cli:system/bin/wpa_cli \
+	$(LOCAL_PATH)/prebuilts/bin/hostapd:system/bin/hostapd \
+	$(LOCAL_PATH)/prebuilts/bin/hostapd_cli:system/bin/hostapd_cli
 
 PRODUCT_PACKAGES += \
 	libwpa_client
+	
+# Wireless AP
+#PRODUCT_PACKAGES += \
+	hostapd_cli \
+	hostapd
 
 PRODUCT_PACKAGES += \
 	Torch \
@@ -222,7 +224,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
     $(LOCAL_PATH)/prebuilts/etc/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh
 
-## Media & Display
+## Media & Display Firmware
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/firmware/cyttsp_7630_fluid.hex:system/etc/firmware/cyttsp_7630_fluid.hex \
     $(LOCAL_PATH)/prebuilts/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
@@ -253,16 +255,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/bin/ip6tables:system/bin/ip6tables \
 	$(LOCAL_PATH)/prebuilts/bin/iptables:system/bin/iptables \
-	$(LOCAL_PATH)/prebuilts/bin/bluetoothd:system/bin/bluetoothd \
 	$(LOCAL_PATH)/prebuilts/bin/cnd:system/bin/cnd \
 	$(LOCAL_PATH)/prebuilts/bin/akmd8962_new:system/bin/akmd8962_new \
 	$(LOCAL_PATH)/prebuilts/bin/rmt_storage:system/bin/rmt_storage
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-	BUILD_UTC_DATE=0 \
-	persist.audio.vr.enable=true \
-	ro.carrier=Boost Mobile \
-	ro.baseband=N861B01
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_NAME := full_warp2
 PRODUCT_DEVICE := warp2
@@ -277,7 +274,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/app/com.s0up.goomanager-1.apk:system/app/com.s0up.goomanager-1.apk
 
 ### ROM Manager support
-PRODUCT_BUILD_PROP_OVERRIDES += \
+PRODUCT_PROPERTY_OVERRIDES += \
 	ro.rommanager.developerid=playfulgod \
 	ro.modversion=$(shell date +%Y%m%d ) 
 

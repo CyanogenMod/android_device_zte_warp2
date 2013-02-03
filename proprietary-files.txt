@@ -1,12 +1,23 @@
 # ZTE Warp2 proprietary-files.txt
-bin/mm-adec-omxaac-test
+
+lib/liboncrpc.so
+lib/libnv.so
+lib/libv8.so
+lib/libdsi_netctrl.so
+lib/libdsi_netctrl.so
+lib/libqc-opt.so
+lib/liboncrpc.so
+vendor/lib/libwvm.so
+lib/libqdi.so
+
+bin/mm-adec-omxaac-test 
 bin/mm-adec-omxadpcm-test
 bin/mm-adec-omxamr-test
 bin/mm-adec-omxamrwb-test
 bin/mm-adec-omxmp3-test
 bin/mm-adec-omxQcelpHw-test
 bin/mm-adec-omxvam-test
-bin/mm-adec-omxwma-test
+bin/mm-adec-omxwma-test 
 bin/mm-aenc-omxaac-test
 bin/mm-aenc-omxamr-test
 bin/mm-aenc-omxevrc-test
@@ -17,7 +28,7 @@ bin/mm-audio-mvs-test
 bin/mm-audio-native-test
 bin/mm-audio-voem_if-test
 bin/mm-jpeg-dec-test
-bin/mm-jpeg-enc-test
+bin/mm-jpeg-enc-test 
 bin/mm-jps-enc-test
 bin/mm-mpo-dec-test
 bin/mm-mpo-enc-test
@@ -31,9 +42,9 @@ bin/qmuxd
 bin/rild
 bin/thermald
 lib/bluez-plugin/audio.so
+lib/hw/sensors.default.so
+lib/libaudioalsa.so
 lib/libauth.so
-lib/libcamera_client.so
-lib/libcameraservice.so
 lib/libcm.so
 lib/libcommondefs.so
 lib/libdiag.so
@@ -42,7 +53,6 @@ lib/libdsm.so
 lib/libdss.so
 lib/libdsutils.so
 lib/libgsdi_exp.so
-lib/libgsl.so
 lib/libgstk_exp.so
 lib/libidl.so
 lib/libmmgsdilib.so
@@ -51,7 +61,6 @@ lib/libmmjpeg.so
 lib/libmm-omxcore.so
 lib/libnetmgr.so
 lib/libnv.so
-lib/liboemcamera.so
 lib/liboem_rapi.so
 lib/libOmxAacDec.so
 lib/libOmxAacEnc.so
@@ -84,13 +93,9 @@ lib/libril-qc-1.so
 lib/libril-qc-qmi-1.so
 lib/libril-qcril-hook-oem.so
 lib/librpc.so
-lib/libSR_AudioIn.so
-lib/libstagefright_omx.so
 lib/libuim.so
 lib/libv8.so
 lib/libwms.so
 lib/libwmsts.so
-
-# etc dir
 etc/media_profiles.xml
 etc/thermald.conf

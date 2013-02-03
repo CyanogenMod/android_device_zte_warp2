@@ -50,6 +50,9 @@ WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P := "/system/etc/firmware/fw_bcmdhd_p2p.bin"
 WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/bcmdhd/parameters/firmware_path"
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+BOARD_SOFTAP_DEVICE := bcmdhd
 
 BOARD_CDMA_NETWORK := true
 
@@ -101,6 +104,7 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_KERNEL_CMDLINE := console=ttyMSM1,115200 androidboot.hardware=warp2
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_PAGESIZE := 2048
+#BOARD_FORCE_RAMDISK_ADDRESS := 
 
 TARGET_KERNEL_CONFIG := warp2_defconfig
 TARGET_PREBUILT_KERNEL := device/zte/warp2/kernel
@@ -140,13 +144,13 @@ TARGET_RECOVERY_INITRC := device/zte/warp2/recovery/recovery.rc
 BOARD_CUSTOM_GRAPHICS := ../../../device/zte/warp2/recovery/graphics.c
 BOARD_HAS_NO_SELECT_BUTTON := true
 
-# default.prop
+# default props
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
 ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=0
 ADDITIONAL_DEFAULT_PROPERTIES += ro.debuggable=1
 ADDITIONAL_DEFAULT_PROPERTIES += persist.service.adb.enable=1
 ADDITIONAL_DEFAULT_PROPERTIES += ro.config.sec_storage=1
-ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.usb.config=mtp,adb
+ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.usb.config=mtp,adb ##,mass_storage
 
 # USB Mass Storage
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/zte/warp2/UsbController.cpp
