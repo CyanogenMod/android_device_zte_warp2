@@ -29,6 +29,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/root/init.qcom.sh:root/init.qcom.sh \
 	$(LOCAL_PATH)/prebuilts/root/init.qcom.usb.rc:root/init.qcom.usb.rc \
 	$(LOCAL_PATH)/prebuilts/root/init.qcom.usb.sh:root/init.qcom.usb.sh \
+	$(LOCAL_PATH)/prebuilts/root/init.usb.rc:root/init.usb.rc \
 	$(LOCAL_PATH)/prebuilts/root/sbin/usbconfig:root/sbin/usbconfig \
 	$(LOCAL_PATH)/prebuilts/root/ueventd.rc:root/ueventd.warp2.rc \
 	$(LOCAL_PATH)/prebuilts/root/init:root/init
@@ -72,6 +73,7 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
 	frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
 	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+	frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
 	frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
 	frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
 	frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
@@ -84,7 +86,6 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
 	frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
 	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
-	frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
 	frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
 	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml
 
@@ -136,13 +137,15 @@ PRODUCT_PACKAGES += \
 	liboverlay
 
 ## Bluetooth
-PRODUCT_PACKAGES += \
-	hciattach \
-	hciconfig \
-	hcitool \
-	hdmid
+#PRODUCT_PACKAGES += \
+#	hciattach \
+#	hciconfig \
+#	hcitool \
+#	hdmid
 
 PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/prebuilts/bin/hdmid:system/bin/hdmid \
+	$(LOCAL_PATH)/prebuilts/bin/hciattach:system/bin/hciattach \
 	$(LOCAL_PATH)/prebuilts/bin/hci_qcomm_init:system/bin/hci_qcomm_init \
 	$(LOCAL_PATH)/prebuilts/etc/bluetooth/main.conf:system/etc/bluetooth/main.conf \
     $(LOCAL_PATH)/prebuilts/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
@@ -170,15 +173,15 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-	gps.default \
-	gps.msm7x30
+	gps.default
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/etc/gps.conf:system/etc/gps.conf 
-#	$(LOCAL_PATH)/prebuilts/lib/libloc_adapter.so:system/lib/libloc_adapter.so \
-#	$(LOCAL_PATH)/prebuilts/lib/libloc_api-rpc-qc.so:system/lib/libloc_api-rpc-qc.so \
-#	$(LOCAL_PATH)/prebuilts/lib/libloc_eng.so:system/lib/libloc_eng.so \
-#	$(LOCAL_PATH)/prebuilts/lib/libloc_ext.so:system/lib/libloc_ext.so
+    $(LOCAL_PATH)/prebuilts/etc/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/prebuilts/lib/libgps.so:system/lib/libgps.so \
+	$(LOCAL_PATH)/prebuilts/lib/libloc_adapter.so:system/lib/libloc_adapter.so \
+	$(LOCAL_PATH)/prebuilts/lib/libloc_api-rpc-qc.so:system/lib/libloc_api-rpc-qc.so \
+	$(LOCAL_PATH)/prebuilts/lib/libloc_eng.so:system/lib/libloc_eng.so \
+	$(LOCAL_PATH)/prebuilts/lib/libloc_ext.so:system/lib/libloc_ext.so
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -189,6 +192,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/etc/audio_policy.conf:system/vendor/etc/audio_policy.conf \
+	$(LOCAL_PATH)/prebuilts/etc/audio_effects.conf:system/vendor/etc/audio_effects.conf \
 	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:obj/lib/libaudioalsa.so \
 	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:system/lib/libaudioalsa.so
 
@@ -205,8 +209,11 @@ PRODUCT_COPY_FILES += \
 
 ## liblights
 PRODUCT_PACKAGES += \
-	lights.warp2 \
-	sensors.default
+	lights.msm7x30
+
+## Sensors
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/prebuilts/sensors.default.so:system/lib/hw/sensors.default.so
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -233,6 +240,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	LiveWallpapers \
 	LiveWallpapersPicker \
+	Screenshot \
 	Torch
 
 ## Media & Display Firmware
