@@ -15,10 +15,10 @@ on init
 
 on emmc-fs
     # msm8660 firmware partitions
-    rm /vendor
-    mkdir /vendor               0771 system system
-    mkdir /vendor/etc           0771 system system
-    mkdir /vendor/firmware      0771 system system
+    #rm /vendor
+    #mkdir /vendor               0771 system system
+    #mkdir /vendor/etc           0771 system system
+    #mkdir /vendor/firmware      0771 system system
 
     mount ext4 /dev/block/mmcblk0p15 /system wait ro data=ordered noauto_da_alloc
     mount ext4 /dev/block/mmcblk0p18 /data wait noatime nosuid nodev data=ordered noauto_da_alloc
@@ -41,8 +41,8 @@ on property:crypto.driver.load=0
     #symlink /system/etc/firmware/fw_bcmdhd_p2p.bin /vendor/firmware/fw_bcmdhd_p2p.bin
     #symlink /system/etc/BCM4330.hcd /vendor/firmware/BCM4330.hcd
 
-    symlink /system/vendor/etc/audio_effects.conf /system/etc/audio_effects.conf
-    symlink /system/vendor/etc/audio_policy.conf /system/etc/audio_policy.conf
+    #symlink /system/vendor/etc/audio_effects.conf /system/etc/audio_effects.conf
+    #symlink /system/vendor/etc/audio_policy.conf /system/etc/audio_policy.conf
 
 on post-fs-data
     # double check the perms and set owner

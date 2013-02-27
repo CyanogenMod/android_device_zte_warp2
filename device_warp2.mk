@@ -196,7 +196,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:obj/lib/libaudioalsa.so \
 	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:system/lib/libaudioalsa.so
 
-
 # Camera
 PRODUCT_PACKAGES += \
     LegacyCamera \

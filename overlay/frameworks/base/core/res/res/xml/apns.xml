@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<apns version="7">
+  <apn carrier="Sprint" mcc="310" mnc="120" apn="Sprint" user="Sprint" server="*" password="*" mmsproxy="" mmsport="" mmsc="http://mm.myboostmobile.com" authtype="3"/>
+</apns>
