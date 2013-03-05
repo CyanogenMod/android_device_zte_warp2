@@ -101,27 +101,11 @@ PRODUCT_PACKAGES += \
 	libmllite \
 	libmlplatform \
 	libmmjpeg_interface \
-	libmm-video \
-	libmm-omxcore \
-	libOmxAacEnc \
-	libOmxAmrEnc \
-	libOmxCore \
-	libOmxEvrcEnc \
-	libOmxQcelp13Enc \
-	libOmxVdec \
-	libOmxVenc \
-	libOmxVidEnc \
 	libOpenMAXAL \
 	libOpenSLES \
 	librs_jni \
 	libmedia_jni \
 	libstagefrighthw \
-	mm-vdec-omx-property-mgr \
-	mm-vdec-omx-test \
-	mm-venc-omx-test \
-	mm-venc-omx-test720p \
-	mm-video-driver-test \
-	mm-video-encdrv-test
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -199,9 +183,9 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    LegacyCamera \
     camera.msm7x30 \
 	libcamera
+#    LegacyCamera \
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/lib/liboemcamera.so:system/lib/liboemcamera.so \
