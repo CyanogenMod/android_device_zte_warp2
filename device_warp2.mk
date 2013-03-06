@@ -184,8 +184,8 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm7x30 \
-	libcamera
-#    LegacyCamera \
+	libcamera \
+    LegacyCamera 
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/lib/liboemcamera.so:system/lib/liboemcamera.so \
