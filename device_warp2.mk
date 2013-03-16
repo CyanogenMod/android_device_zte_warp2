@@ -31,8 +31,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/root/init.qcom.usb.sh:root/init.qcom.usb.sh \
 	$(LOCAL_PATH)/prebuilts/root/init.usb.rc:root/init.usb.rc \
 	$(LOCAL_PATH)/prebuilts/root/sbin/usbconfig:root/sbin/usbconfig \
-	$(LOCAL_PATH)/prebuilts/root/ueventd.rc:root/ueventd.warp2.rc \
-	$(LOCAL_PATH)/prebuilts/root/init:root/init
+	$(LOCAL_PATH)/prebuilts/root/ueventd.rc:root/ueventd.warp2.rc
 
 ## Recovery
 PRODUCT_COPY_FILES += \
