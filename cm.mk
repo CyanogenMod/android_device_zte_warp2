@@ -8,7 +8,7 @@ PRODUCT_RELEASE_NAME := warp2
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/zte/warp2/device_warp2.mk)
+$(call inherit-product, device/zte/warp2/full_warp2.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := warp2
