@@ -212,7 +212,7 @@ PRODUCT_PACKAGES += \
 
 ## Sensors
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/prebuilts/sensors.default.so:system/lib/hw/sensors.default.so
+	$(LOCAL_PATH)/prebuilts/lib/hw/sensors.default.so:system/lib/hw/sensors.default.so
 
 # Wifi
 PRODUCT_COPY_FILES += \
