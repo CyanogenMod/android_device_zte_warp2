@@ -101,11 +101,27 @@ PRODUCT_PACKAGES += \
 	libmllite \
 	libmlplatform \
 	libmmjpeg_interface \
+	libmm-video \
+	libmm-omxcore \
+	libOmxAacEnc \
+	libOmxAmrEnc \
+	libOmxCore \
+	libOmxEvrcEnc \
+	libOmxQcelp13Enc \
+	libOmxVdec \
+	libOmxVenc \
+	libOmxVidEnc \
 	libOpenMAXAL \
 	libOpenSLES \
 	librs_jni \
 	libmedia_jni \
 	libstagefrighthw \
+	mm-vdec-omx-property-mgr \
+	mm-vdec-omx-test \
+	mm-venc-omx-test \
+	mm-venc-omx-test720p \
+	mm-video-driver-test \
+	mm-video-encdrv-test
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -175,7 +191,7 @@ PRODUCT_PACKAGES += \
 	libaudioutils
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/prebuilts/etc/audio_policy.conf:system/vendor/etc/audio_policy.conf \
+	$(LOCAL_PATH)/prebuilts/etc/audio_policy.conf:system/etc/audio_policy.conf \
 	$(LOCAL_PATH)/prebuilts/etc/audio_effects.conf:system/vendor/etc/audio_effects.conf \
 	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:obj/lib/libaudioalsa.so \
 	$(LOCAL_PATH)/prebuilts/lib/libaudioalsa.so:system/lib/libaudioalsa.so
@@ -202,6 +218,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     $(LOCAL_PATH)/prebuilts/etc/wifi/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
+	$(LOCAL_PATH)/prebuilts/bin/hostapd:system/bin/hostapd \
+	$(LOCAL_PATH)/prebuilts/bin/hostapd_cli:system/bin/hostapd_cli \
     $(LOCAL_PATH)/prebuilts/etc/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal \
     $(LOCAL_PATH)/prebuilts/etc/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
     $(LOCAL_PATH)/prebuilts/etc/init.wlanprop.sh:system/etc/init.wlanprop.sh \
@@ -214,11 +232,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 	libwpa_client
 	
-# Wireless AP
-PRODUCT_PACKAGES += \
-	hostapd_cli \
-	hostapd
-
 # Extra packages
 PRODUCT_PACKAGES += \
 	LiveWallpapers \
