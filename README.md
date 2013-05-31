@@ -38,7 +38,7 @@ Getting my ZTE Sequent repo
 
 	$ cd zte
 
-	$ git clone https://github.com/playfulgod/android_device_zte_warp2.git warp2
+	$ git clone https://github.com/playfulgod/android_device_zte_warp2.git -b cm-10.1 warp2
 
 Then cd to the kernel directory:
 
@@ -46,7 +46,7 @@ Then cd to the kernel directory:
 
 	$ mkdir zte
 
-	$ git clone https://github.com/playfulgod/N861_ZTE_kernel.git warp2
+	$ git clone https://github.com/playfulgod/kernel_ate_warp2.git warp2
 
 Extract necessary binaries and proprietary files 
 ------------------------------------------------
@@ -59,13 +59,13 @@ We will need to reuse some proprietary files from the stock ROM:
     
     $ ./extract-files.sh
 
-Building CM10
+Building
 -------------
 Once thats done you can start compiling.
 
 Follow the aosp instructions on setting up the build environment. - http://source.android.com/source/download.html
 
-When the environment is setup, we need to grab a copy of Koush's ROM Manager and the Term.apk. This is necessary to build CM10.
+When the environment is setup, we need to grab a copy of Term.apk. This is necessary to build CM10.
 
     $ cd ~/android/system/vendor/cm
 
@@ -80,7 +80,7 @@ To build for the ZTE Sequent:
     $ . build/envsetup.sh && brunch warp2
 
 
-Installing CM10
+Installing
 ---------------
 If the build was successful, you can now take the update zip found in out/target/product/warp2/ and flash using a custom recovery. Make sure to grab the latest Gapps to complete the experience.
 
