@@ -24,21 +24,21 @@ PRODUCT_COPY_FILES += \
 ## Ramdisk
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/prebuilts/root/init.warp2.rc:root/init.warp2.rc \
-	$(LOCAL_PATH)/prebuilts/root/init.2ndstg.rc:root/init.2ndstg.rc \
 	$(LOCAL_PATH)/prebuilts/root/logo.bmp:root/logo.bmp \
+	$(LOCAL_PATH)/prebuilts/root/init:root/init \
 	$(LOCAL_PATH)/prebuilts/root/init.qcom.sh:root/init.qcom.sh \
 	$(LOCAL_PATH)/prebuilts/root/init.qcom.usb.rc:root/init.qcom.usb.rc \
 	$(LOCAL_PATH)/prebuilts/root/init.qcom.usb.sh:root/init.qcom.usb.sh \
 	$(LOCAL_PATH)/prebuilts/root/init.usb.rc:root/init.usb.rc \
 	$(LOCAL_PATH)/prebuilts/root/sbin/usbconfig:root/sbin/usbconfig \
-	$(LOCAL_PATH)/prebuilts/root/ueventd.rc:root/ueventd.warp2.rc \
-	$(LOCAL_PATH)/prebuilts/root/init:root/init
+	$(LOCAL_PATH)/prebuilts/root/ueventd.rc:root/ueventd.warp2.rc
+#	$(LOCAL_PATH)/prebuilts/root/init.2ndstg.rc:root/init.2ndstg.rc \
 
 ## Recovery
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/recovery/rmt_storage_recovery:recovery/prebuilts/root/sbin/rmt_storage_recovery \
-	$(LOCAL_PATH)/recovery/ueventd.rc:recovery/prebuilts/root/ueventd.rc \
-	$(LOCAL_PATH)/recovery/usbconfig:recovery/prebuilts/root/sbin/usbconfig
+	$(LOCAL_PATH)/recovery/usbconfig:recovery/root/sbin/usbconfig \
+	$(LOCAL_PATH)/recovery/rmt_storage_recovery:recovery/root/sbin/rmt_storage_recovery
+#	$(LOCAL_PATH)/recovery/ueventd.rc:recovery/root/ueventd.rc \
 
 $(call inherit-product, build/target/product/full.mk)
 
@@ -291,13 +291,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/app/com.s0up.goomanager-1.apk:system/app/com.s0up.goomanager-1.apk
-
-### ROM Manager support
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.rommanager.developerid=playfulgod \
-	ro.modversion=$(shell date +%Y%m%d ) 
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/app/com.koushikdutta.rommanager-1.apk:system/app/com.koushikdutta.rommanager-1.apk
-
 
